@@ -17,6 +17,7 @@
                     <p class='body'>id                : {{ $test->id }}</p>
                     <p class='body'>name              : {{ $test->name }}</p>
                     <p class='body'>email             : {{ $test->email }}</p>
+                    <p class='body'>admin             : {{ $test->admin_chk }}</p>
                     <p class='body'>email_verified_at : {{ $test->email_verified_at }}</p>
                     <p class='body'>created_at        : {{ $test->created_at }}</p>
                     <p class='body'>updated_at        : {{ $test->updated_at }}</p>

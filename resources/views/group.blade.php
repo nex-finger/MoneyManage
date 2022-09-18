@@ -16,7 +16,7 @@
                 <p class='body'>name       : {{ $group['name'] }}</p>
                 <p class='body'>leader_id  : {{ $group['leader_id'] }}</p>
                 <p class='body'>created_at : {{ $group['created_at'] }}</p>
-                <hR>
+                <hr>
                 @endforeach
             </div>
         </div>

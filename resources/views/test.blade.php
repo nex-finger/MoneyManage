@@ -12,15 +12,27 @@
             <div class='post'>
                 <h2 class='title'>データベース情報</h2>
                 <p class='body'>This is a sample body.</p>
-                <p class='body'>value =</p>
-                @foreach ($tests as $test)
-                    <p class='body'>id                : {{ $test->id }}</p>
-                    <p class='body'>name              : {{ $test->name }}</p>
-                    <p class='body'>email             : {{ $test->email }}</p>
-                    <p class='body'>admin             : {{ $test->admin_chk }}</p>
-                    <p class='body'>email_verified_at : {{ $test->email_verified_at }}</p>
-                    <p class='body'>created_at        : {{ $test->created_at }}</p>
-                    <p class='body'>updated_at        : {{ $test->updated_at }}</p>
+                <p class='body'>userdata =</p>
+                <hr>
+                @foreach ($users as $user)
+                    <p class='body'>id                : {{ $user->id }}</p>
+                    <p class='body'>name              : {{ $user->name }}</p>
+                    <p class='body'>email             : {{ $user->email }}</p>
+                    <p class='body'>admin             : {{ $user->admin_chk }}</p>
+                    <p class='body'>email_verified_at : {{ $user->email_verified_at }}</p>
+                    <p class='body'>created_at        : {{ $user->created_at }}</p>
+                    <p class='body'>updated_at        : {{ $user->updated_at }}</p>
+                    <hr>
+                @endforeach
+                
+                <p class='body'>groupdata =</p>
+                <hr>
+                @foreach ($groups as $group)
+                    <p class='body'>id         : {{ $group->id }}</p>
+                    <p class='body'>name       : {{ $group->name }}</p>
+                    <p class='body'>leader_id  : {{ $group->leader_id }}</p>
+                    <p class='body'>created_at : {{ $group->created_at }}</p>
+                    <p class='body'>updated_at : {{ $group->updated_at }}</p>
                     <hr>
                 @endforeach
             </div>

@@ -13,10 +13,11 @@
                 <h2 class='title'>マイページ</h2>
                 <p class='body'>ログインしたユーザの情報</p>
                 <p class='body'>あなたの</p>
-                <p class='body'>idは                : {{ $user->id }}</p>
-                <p class='body'>nameは              : {{ $user->name }}</p>
-                <p class='body'>emailは             : {{ $user->email }}</p>
-                <p class='body'>作成時間は          : {{ $user->created_at }}</p>
+                <p class='body'>idは         : {{ $user['id'] }}</p>
+                <p class='body'>ユーザ名は   : {{ $user['name'] }}</p>
+                <p class='body'>メールは     : {{ $user['email'] }}</p>
+                <p class='body'>作成時間は   : {{ $user['created_at'] }}</p>
+                <p class='body'>管理者権限は : {{ $user['admin'] }}</p>
                 <p class='body'>です.</p>
             </div>
         </div>

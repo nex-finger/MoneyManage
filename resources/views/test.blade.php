@@ -37,5 +37,6 @@
                 @endforeach
             </div>
         </div>
+        @include('template')
     </body>
 </html>

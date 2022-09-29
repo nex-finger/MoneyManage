@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'TestController@index');
 Route::get('/mypage', 'MypageController@index');
 Route::get('/group', 'GroupController@index');
+Route::get('/group/create', 'GroupController@create');
+
+Route::post('/group/create', 'GroupController@store');

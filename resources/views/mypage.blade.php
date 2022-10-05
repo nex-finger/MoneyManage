@@ -20,6 +20,13 @@
                 <p class='body'>管理者権限は : {{ $user['admin'] }}</p>
                 <p class='body'>です.</p>
             </div>
+            <div class='post'>
+                <h2 class='title'>団体新規作成</h2>
+                <p class='body'>[<a href="/group/create">新規作成(/group/create)</a>]</p>
+                <h2 class='title'>宿泊先新規作成</h2>
+                <p class='body'>[<a href="/place2/create">新規作成(/place/create)</a>]</p>
+            </div>
         </div>
+        @include('template')
     </body>
 </html>

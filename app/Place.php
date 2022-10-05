@@ -6,22 +6,23 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class groups extends Authenticatable
+class Place extends Authenticatable
 {
     use Notifiable;
     
-    protected $table = 'groups';
+    protected $table = 'places';
 
     protected $fillable = [
-        'name', 'leader_id'    
+        'name', 'leader_id', 'address', 'value'    
     ];
     
     protected $guarded = [
         'created_at', 'updated_at'    
     ];
-    
-    public function members()
+
+    // Relationship
+    public function option()
     {
-        return $this->hasMany('App\Member', 'user_id', 'id');
+        return $this->hasMany(option::class, 'place_id', 'id');
     }
 }

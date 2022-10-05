@@ -10,9 +10,10 @@ class GroupController extends Controller
     public function index()
     {
         $md = new groups;
+        $user = Auth()->user();
         $data = $md->get();
         
-        return view('group', ['groups' => $data]);   
+        return view('group', ['groups' => $data], ['user' => $user]);   
     }
     
     public function create()

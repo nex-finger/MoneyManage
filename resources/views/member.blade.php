@@ -7,14 +7,17 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>大人数での会計管理システム</h1>
-        <div class='posts'>
+        <h1>Test Page</h1>
+        <div class='testid'>
             <div class='post'>
-                <h2 class='title'>トップページ</h2>
-                <p class='body'>ここはトップページです</p>
-                <p class='body'>ログインが成功するとここに飛びます</p>
-                @include('template', ['name' => $user])
+                <h2 class='title'>団体メンバー</h2>
+            </div>
+            <div class='post'>
+                @foreach($members as $member)
+                <p class='body'>id : {{ $member['user_id'] }}</p>
+                @endforeach
             </div>
         </div>
+        @include('template', ['name' => $user])
     </body>
 </html>

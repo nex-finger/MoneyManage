@@ -21,10 +21,11 @@
                 <p class='body'>代表者id : {{ $group['leader_id'] }}</p>
                 <p class='body'>代表者名前 : {{ $group['leader_name'] }}</p>
                 <p class='body'>作成時間 : {{ $group['created_at'] }}</p>
+                <p class="edit">[<a href="/group/member/{{ $group->id }}">詳細（参加脱退はこちら）</a>]</p>
                 <hr>
                 @endforeach
             </div>
         </div>
-        @include('template')
+        @include('template', ['name' => $user])
     </body>
 </html>

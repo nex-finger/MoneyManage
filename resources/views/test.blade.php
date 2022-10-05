@@ -35,6 +35,17 @@
                     <p class='body'>updated_at : {{ $group->updated_at }}</p>
                     <hr>
                 @endforeach
+                
+                <p class='body'>memberdata =</p>
+                <hr>
+                @foreach ($members as $member)
+                    <p class='body'>id         : {{ $member->id }}</p>
+                    <p class='body'>user_id    : {{ $member->user_id }}</p>
+                    <p class='body'>group_id   : {{ $member->group_id }}</p>
+                    <p class='body'>created_at : {{ $member->created_at }}</p>
+                    <p class='body'>updated_at : {{ $member->updated_at }}</p>
+                    <hr>
+                @endforeach
             </div>
         </div>
         @include('template')

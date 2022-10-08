@@ -11,7 +11,7 @@
         <div class='testid'>
             <div class='post'>
                 <h2 class='title'>宿泊先新規作成</h2>
-                <p class='body'>[<a href="/group/create">新規作成(/place/create)</a>]</p>
+                <p class='body'>[<a href="/place/create">新規作成(/place/create)</a>]</p>
             </div>
             <div class='post'>
                 <h2 class='title'>宿泊先一覧</h2>

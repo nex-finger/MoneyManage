@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ingredient;
-use App\Models\Recipe;
+use App\Ingredient;
+use App\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,7 +29,7 @@ class RecipeController extends Controller
             'ingredients' => ['required'],
             'ingredients.*' => ['required', 'distinct'],
         ]);
-
+        
         $result = false;
 
         DB::beginTransaction();

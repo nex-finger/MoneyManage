@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Place;
+use App\groups;
 
 class MypageController extends Controller
 {

@@ -8,18 +8,16 @@
     </head>
     <body>
         <h1>Test Page</h1>
-            <h2 class='title'>宿泊先登録</h2>
-                <form action="/place/create" method="POST">
+                <h2 class='title'>団体登録</h2>
+                <form action="/group/create" method="POST">
                     @csrf
             <div class="title">
-            <h2>情報</h2>
-                <p><input type="text" name="name" placeholder="団体名"/></p>
-                <p><input type="text" name="address" placeholder="住所"/></p>
-                <p><input type="text" name="value" placeholder="基本料金"/></p>
+                <h2>Title</h2>
+                <input type="text" name="name" placeholder="団体名"/>
             </div>
             <input type="submit" value="保存"/>
         </form>
-        <div class="back">[<a href="/place">back</a>]</div>
+        <div class="back">[<a href="/group">back</a>]</div>
         @include('template', ['name' => $user])
     </body>
 </html>

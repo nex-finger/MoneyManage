@@ -33,6 +33,8 @@ class PlaceController extends Controller
         $data->leader_name = $user['name'];
         $data->address = $request['address'];
         $data->value = $request['value'];
+        $data->lat = $request['lat'];
+        $data->lng = $request['lng'];
         
         $data->save();
         
@@ -45,6 +47,13 @@ class PlaceController extends Controller
         $user = Auth()->user();
         $data = $md->find($id);
         
-        return view('showplace', ['place' => $data], ['user' => $user]);   
+        $lat = $data['lat'];
+        $lng = $data['lng'];
+        $placename = $data['name'];
+        
+        return view('showplace', ['place' => $data], ['user' => $user])->with([
+            'lat' => $lat,
+            'lng' => $lng,
+            'placename' => $placename]);
     }
 }

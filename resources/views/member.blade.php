@@ -10,7 +10,7 @@
         <h1>Test Page</h1>
         <div class='testid'>
             <div class='post'>
-                <h2 class='title'>団体メンバー</h2>
+                <h2 class='title'>グループ名 : {{ $leader }}</h2>
             </div>
             <div class='post'>
                 @foreach($members as $member)

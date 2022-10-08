@@ -14,9 +14,13 @@ class MemberController extends Controller
         $user = Auth()->user();
         $id = Auth()->id();
         
-        //$group = Member::find($group_id)->groups->name;
-        $member = User::find($id)->members;
         
-        return view('member', ['members' => $member], ['user' => $user]);   
+        
+        $memdata = Member::find($group_id);
+        $leader = Member::where($memdata['user_id'])->User;
+        
+        $members = Member::where('group_id', '=', $group_id)->get();
+        
+        return view('member', ['leader' => $memdata], ['user' => $user])->with('members', $members);
     }
 }

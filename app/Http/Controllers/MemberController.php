@@ -16,11 +16,16 @@ class MemberController extends Controller
         
         
         
-        $memdata = Member::find($group_id);
-        $leader = Member::where($memdata['user_id'])->User;
+        $memdata = Member::where('group_id', '=', $group_id)->get();
+        $leader = groups::where('group_id', '=', $group_id)->get();
         
         $members = Member::where('group_id', '=', $group_id)->get();
         
-        return view('member', ['leader' => $memdata], ['user' => $user])->with('members', $members);
+        return view('member')->with([
+            'user' => $user,
+            'leader' => $memdata,
+            'members' => $members
+            ]);
+        //return view('member', ['leader' => $memdata], ['user' => $user])->with('members', $members);
     }
 }

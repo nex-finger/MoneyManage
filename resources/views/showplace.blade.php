@@ -32,12 +32,12 @@
                 
 	        </div>
 	        <script>
-	            const lat = @json($lat);
-	            const lng = @json($lng);
-	            const placename = @json($placename);
+	        const lat = @json($lat);
+	        const lng = @json($lng);
+	        const placename = @json($placename);
 	            
-	            //console.log(lat);
-	            //console.log(lng);
+	        //console.log(lat);
+	        //console.log(lng);
 	            
             // googleMapsAPIを持ってくるときに,callback=initMapと記述しているため、initMap関数を作成
             function initMap() {

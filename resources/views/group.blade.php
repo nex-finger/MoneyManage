@@ -16,10 +16,10 @@
             <div class='post'>
                 <h2 class='title'>団体一覧</h2>
                 @foreach($groups as $group)
-                <p class='body'>id : {{ $group['id'] }}</p>
+                <p class='body'>団体ID : {{ $group['id'] }}</p>
                 <p class='body'>団体名 : {{ $group['name'] }}</p>
-                <p class='body'>代表者id : {{ $group['leader_id'] }}</p>
-                <p class='body'>代表者名前 : {{ $group['leader_name'] }}</p>
+                <p class='body'>作成者ID : {{ $group['leader_id'] }}</p>
+                <p class='body'>作成者氏名 : {{ $group['leader_name'] }}</p>
                 <p class='body'>作成時間 : {{ $group['created_at'] }}</p>
                 <p class="edit">[<a href="/group/member/{{ $group->id }}">詳細（参加脱退はこちら）</a>]</p>
                 <hr>

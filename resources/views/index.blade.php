@@ -1,20 +1,58 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
-        <h1>大人数での会計管理システム</h1>
-        <div class='posts'>
-            <div class='post'>
-                <h2 class='title'>トップページ</h2>
-                <p class='body'>ここはトップページです</p>
-                <p class='body'>ログインが成功するとここに飛びます</p>
-                @include('template', ['name' => $user])
-            </div>
-        </div>
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+<meta name="Description" content="*** ページの概要 ***" />
+<meta name="Keywords" content="*** キーワード ***,*** キーワード ***,*** キーワード ***" />
+<title>*** タイトル ***</title>
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen,tv" />
+</head>
+<body>
+<div id="header">
+<div id="header-inner">
+<!-- タイトル -->
+<h1>*** 見出し[キーワード] ***</h1>
+<!-- タイトル -->
+<p class="logo"><a href="index.html">*** 会社名｜店舗名｜タイトル ***</a></p>
+<!-- 概要 -->
+<p class="description">*** 概要 ***</p>
+</div><!-- / header-inner end -->
+</div><!-- / header end -->
+
+<div id="container">
+<div id="container-inner">
+<div id="contents">
+<!-- パン屑リスト -->
+<p class="topic-path"><a href="index.html">Home</a> &gt; 無料テンプレート</p>
+
+<!-- コンテンツ ここから -->
+<h2>トップページ</h2>
+<p>ここはトップページ(/)です．</p>
+<p>ログインが成功するとここに飛びます</p>
+<!-- コンテンツ ここまで -->
+</div><!-- / contents end -->
+</div><!-- / container-inner end -->
+
+<div id="sidebar">
+<!-- サイドバー ここから -->
+@include('template', ['name' => $user])
+<!-- サイドバー ここまで -->
+</div><!-- / sidebar end -->
+
+<div id="undernavi">
+<!-- 自由に入力して下さい。 -->
+<p><a href="index.html">Home</a></p>
+
+</div><!-- floar clear/ undernavi end -->
+</div><!-- / container end -->
+<div id="footer">
+<div id="footer-inner">
+<!-- コピーライト -->
+<p>Copyright &copy; *** 著作権表記 ***. All Rights Reserved.</p>
+<p id="cds">CSS Template <a href="http://www.css-designsample.com/">CSSデザインサンプル</a></p>
+</div><!-- / footer-inner end -->
+</div><!-- / footer end -->
+</body>
 </html>

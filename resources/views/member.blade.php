@@ -20,8 +20,8 @@
                     </tr>
                     @foreach($members as $member)
                     <tr>
-                        <th><p class='body'>{{ $member->user->id }}</p></th>
-                        <th><p class='body'>{{ $member->user->name }}</p></th>
+                        <td><p class='body'>{{ $member->user->id }}</p></td>
+                        <td><p class='body'>{{ $member->user->name }}</p></td>
                     </tr>
                     @endforeach
                 </table>
@@ -29,27 +29,38 @@
                 <div class="title">
                     <h2>加入脱退</h2>
                 </div>
-                <p><input type="button" value="加入する" onclick="OnButtonClickJoin()"/></p>
-                <p><input type="button" value="脱退する" onclick="OnButtonClickLeave()"/></p>
+                
+                <form action="/group/member/join/{{ $group_id }}" id="1" method="post">
+                    @csrf
+                    <p><input type="button" value="加入する" onclick="OnButtonClickJoin()"/></p>
+                </form>
+                
+                <form action="/group/member/leave/{{ $group_id }}" id="2" method="post">
+                    @csrf
+                    <p><input type="button" value="脱退する" onclick="OnButtonClickLeave()"/></p>
+                </form>
+                
             </div>
             
             <script>
             const id = {{ $user->id }};
-            const idlist = {{ $member->user->id }};
+            const idlist = @json($memberarr);
             
             function OnButtonClickJoin() {
                 if(idlist.includes(id)) {
-                    window.alert('既に加入しています');
+                    window.alert('既に加入しているため，処理を実行できませんでした');
                 } else {
-                    window.alert('加入処理');
+                    window.alert('加入処理を実行します．');
+                    document.getElementById(1).submit();
                 }
             }
             
             function OnButtonClickLeave() {
                 if(idlist.includes(id)) {
-                    window.alert('脱退処理');
+                    window.alert('脱退処理を実行します．');
+                    document.getElementById(2).submit();
                 } else {
-                    window.alert('加入していない団体から脱退することはできません');
+                    window.alert('元から加入していないため，処理を実行できませんでした．');
                 }
             }
                 

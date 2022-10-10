@@ -21,12 +21,27 @@
                 <p class='body'>です.</p>
             </div>
             <div class='body'>
-                <h3 class='body'>あなたが代表している団体</h3>
+                <h3 class='body'>{{ $user['name'] }}さんが加入している団体</h3>
                 
-                @foreach($groups as $group)
-                    <p class='body'>団体名 : {{ $group['name'] }}</p>
-                    <p class='body'>代表者氏名 : {{ $group['leader_name'] }}</p>
-                    <p class="edit">[<a href="/group/member/{{ $group->id }}">詳細（参加脱退はこちら）</a>]</p>
+                @foreach($ingroups as $ingroup)
+                    <p class='body'>団体名 : {{ $ingroup->group->name }}</p>
+                    <p class='body'>代表者氏名 : {{ $ingroup->group->leader_name }}</p>
+                    <p class="edit">[<a href="/group/member/{{ $ingroup->group->id }}">詳細（参加脱退はこちら）</a>]</p>
+                    <hr>
+                @endforeach
+                
+                <h3 class='body'>{{ $user['name'] }}さんが代表している団体</h3>
+                
+                @foreach($mygroups as $mygroup)
+                    <p class='body'>団体名 : {{ $mygroup['name'] }}</p>
+                    <p class='body'>代表者氏名 : {{ $mygroup['leader_name'] }}</p>
+                    <p class="edit">[<a href="/group/member/{{ $mygroup->id }}">詳細（参加脱退はこちら）</a>]</p>
+                    
+                    <form action="/group/leave/{{ $mygroup->id }}" id='{{ $mygroup->id }}' method="post">
+                        @csrf
+                        <p><input type="button" value="削除する" onclick="OnButtonClickGroupLeave({{ $mygroup->id }})"/></p>
+                    </form>
+                
                     <hr>
                 @endforeach
                 
@@ -34,12 +49,18 @@
                 <p class='body'>[<a href="/group/create">新規作成(/group/create)</a>]</p>
                 <hr>
                 
-                <h3 class='body'>あなたが代表している宿泊先</h3>
+                <h3 class='body'>{{ $user['name'] }}さんが代表している宿泊先</h3>
                 
-                @foreach($places as $place)
-                    <p class='body'>宿泊先 : {{ $place['name'] }}</p>
-                    <p class='body'>代表者氏名 : {{ $place['leader_name'] }}</p>
-                    <p class="edit">[<a href="/place/{{ $place->id }}">詳細（参加脱退はこちら）</a>]</p>
+                @foreach($myplaces as $myplace)
+                    <p class='body'>宿泊先 : {{ $myplace['name'] }}</p>
+                    <p class='body'>代表者氏名 : {{ $myplace['leader_name'] }}</p>
+                    <p class="edit">[<a href="/place/{{ $myplace->id }}">詳細（参加脱退はこちら）</a>]</p>
+                    
+                    <form action="/place/leave/{{ $myplace->id }}" id='{{ $myplace->id }}' method="post">
+                        @csrf
+                        <p><input type="button" value="削除する" onclick="OnButtonClickPlaceLeave({{ $myplace->id }})"/></p>
+                    </form>
+                    
                     <hr>
                 @endforeach
                 
@@ -51,4 +72,18 @@
         </div>
         @include('template')
     </body>
+    
+    <script>
+    function OnButtonClickGroupLeave(id) {
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(id).submit();
+        }
+    }
+    
+    function OnButtonClickPlaceLeave(id) {
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(id).submit();
+        }
+    }
+    </script>
 </html>

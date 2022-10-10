@@ -56,4 +56,16 @@ class PlaceController extends Controller
             'lng' => $lng,
             'placename' => $placename]);
     }
+    
+    public function leave($place_id)
+    {
+        $user = Auth()->user();
+        $id = Auth()->id();
+        
+        $data = new Place();
+        $data->where('id', '=', $place_id)->delete();
+        
+        return redirect()->action('MypageController@index');
+        //return view('member', ['leader' => $memdata], ['user' => $user])->with('members', $members);
+    }
 }

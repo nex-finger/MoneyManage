@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Place;
 use App\groups;
+use App\Member;
 
 class MypageController extends Controller
 {
@@ -31,12 +32,14 @@ class MypageController extends Controller
         
         $mygr = groups::where('leader_id', '=', $user['id'])->get();
         $mypl = Place::where('leader_id', '=', $user['id'])->get();
+        $ingr = Member::with('group')->where('user_id', '=', $user['id'])->get();
         
         //この書き方だと正しく表示される
         return view('mypage')->with([
             'user' => $user,
-            'groups' => $mygr,
-            'places' => $mypl
+            'mygroups' => $mygr,
+            'myplaces' => $mypl,
+            'ingroups' => $ingr
             ]);
         
         //これだとダメらしい

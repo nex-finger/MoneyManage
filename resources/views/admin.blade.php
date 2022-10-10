@@ -3,8 +3,33 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
+        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        
+        <!-- CSS -->
+        <style type="text/css">
+        body {
+            font-size: 12px;
+            font-family: "MSゴシック", "Arial", "メイリオ";
+            font-smoothing: none;
+        }
+        
+        table {
+            border-collapse: collapse;
+            white-space: nowrap;
+        }
+        
+        table th {padding: 10px 20px;}
+        
+        table td {
+            padding: 0px 20px;
+            height: 1.2rem;
+        }
+        
+        hr {margin: 20px 0px;}
+        </style>
+        
     </head>
     <body>
         <h1>Test Page</h1>
@@ -30,17 +55,18 @@
                     </tr>
                     @foreach ($users as $user)
                         <tr>
-                            <th>{{ $user->id }}</th>
-                            <th>{{ $user->name }}</th>
-                            <th>{{ $user->email }}</th>
-                            <th>{{ $user->email_verified_at }}</th>
-                            <th>{{ $user->admin_chk }}</th>
-                            <th>{{ $user->remember_token }}</th>
-                            <th>{{ $user->created_at }}</th>
-                            <th>{{ $user->updated_at }}</th>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->email_verified_at }}</td>
+                            <td>{{ $user->admin_chk }}</td>
+                            <td>{{ $user->remember_token }}</td>
+                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->updated_at }}</td>
                         </tr>
                     @endforeach
                 </table>
+                <p class='body'>※カラム"password"は暗号化されているので表示しない</p>
                 
                 <hr>
                 
@@ -60,19 +86,21 @@
                     </tr>
                 @foreach ($places as $place)
                     <tr>
-                        <th>{{ $place->id }}</th>
-                        <th>{{ $place->name }}</th>
-                        <th>{{ $place->leader_id }}</th>
-                        <th>{{ $place->leader_name }}</th>
-                        <th>{{ $place->address }}</th>
-                        <th>{{ $place->value }}</th>
-                        <th>{{ $place->lat }}</th>
-                        <th>{{ $place->lng }}</th>
-                        <th>{{ $place->created_at }}</th>
-                        <th>{{ $place->updated_at }}</th>
+                        <td>{{ $place->id }}</td>
+                        <td>{{ $place->name }}</td>
+                        <td>{{ $place->leader_id }}</td>
+                        <td>{{ $place->leader_name }}</td>
+                        <td>{{ $place->address }}</td>
+                        <td>{{ $place->value }}</td>
+                        <td>{{ $place->lat }}</td>
+                        <td>{{ $place->lng }}</td>
+                        <td>{{ $place->created_at }}</td>
+                        <td>{{ $place->updated_at }}</td>
                     </tr>
                 @endforeach
                 </table>
+                <p class='body'>leader_id は users->id とリレーション</p>
+                <p class='body'>leader_name は users->name とリレーション</p>
                 
                 <hr>
                 
@@ -88,15 +116,17 @@
                     </tr>
                 @foreach ($groups as $group)
                     <tr>
-                        <th>{{ $group->id }}</th>
-                        <th>{{ $group->name }}</th>
-                        <th>{{ $group->leader_id }}</th>
-                        <th>{{ $group->leader_name }}</th>
-                        <th>{{ $group->created_at }}</th>
-                        <th>{{ $group->updated_at }}</th>
+                        <td>{{ $group->id }}</td>
+                        <td>{{ $group->name }}</td>
+                        <td>{{ $group->leader_id }}</td>
+                        <td>{{ $group->leader_name }}</td>
+                        <td>{{ $group->created_at }}</td>
+                        <td>{{ $group->updated_at }}</td>
                     </tr>
                 @endforeach
                 </table>
+                <p class='body'>leader_id は users->id とリレーション</p>
+                <p class='body'>leader_name は users->name とリレーション</p>
                 
                 <hr>
                 
@@ -111,14 +141,16 @@
                     </tr>
                 @foreach ($members as $member)
                     <tr>
-                        <th>{{ $member->id }}</th>
-                        <th>{{ $member->user_id }}</th>
-                        <th>{{ $member->group_id }}</th>
-                        <th>{{ $member->created_at }}</th>
-                        <th>{{ $member->updated_at }}</th>
+                        <td>{{ $member->id }}</td>
+                        <td>{{ $member->user_id }}</td>
+                        <td>{{ $member->group_id }}</td>
+                        <td>{{ $member->created_at }}</td>
+                        <td>{{ $member->updated_at }}</td>
                     </tr>
                 @endforeach
                 </table>
+                <p class='body'>user_id は users->id とリレーション</p>
+                <p class='body'>group_id は groups->id とリレーション</p>
             </div>
         </div>
         @include('template')

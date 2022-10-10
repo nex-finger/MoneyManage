@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\groups;
+use App\Member;
 
 class GroupController extends Controller
 {
@@ -35,5 +36,20 @@ class GroupController extends Controller
         $data->save();
         
         return redirect('/group');
+    }
+    
+    public function leave($group_id)
+    {
+        $user = Auth()->user();
+        $id = Auth()->id();
+        
+        $data_m = new Member();
+        $data_m->where('group_id', '=', $group_id)->delete();
+        
+        $data_g = new groups();
+        $data_g->where('id', '=', $group_id)->delete();
+        
+        return redirect()->action('MypageController@index');
+        //return view('member', ['leader' => $memdata], ['user' => $user])->with('members', $members);
     }
 }

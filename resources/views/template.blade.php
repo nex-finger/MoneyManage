@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <p class="sidetitle">メニュー</p>
 <ul class="localnavi">
-    <li><a href="/">ホーム</a></li>
-    <li><a href="/login">ログイン</a></li>
+    <li><a href="/">トップページ</a></li>
+    <li><a href="/login">ログイン・ログアウト</a></li>
     <li><a href="/mypage">マイページ({{ $user['name'] }}さん)</a></li>
     <li><a href="/group">グループ一覧</a></li>
     <li><a href="/place">宿泊先一覧</a></li>

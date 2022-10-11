@@ -11,7 +11,7 @@
         <style type="text/css">
         body {
             font-size: 12px;
-            font-family: "MSゴシック", "Arial", "メイリオ";
+            font-family: sans-serif;
             font-smoothing: none;
         }
         

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
@@ -13,7 +13,7 @@
                     @csrf
                     <div class="title">
                         <h2>Title</h2>
-                        <input type="text" name="name" placeholder="団体名"/>
+                        <input type="text" name="name" placeholder="グループ名"/>
                     </div>
                     <input type="submit" value="保存"/>
                 </form>

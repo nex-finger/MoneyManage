@@ -25,51 +25,80 @@
 <div id="container-inner">
 <div id="contents">
 <!-- パン屑リスト -->
-<p class="topic-path"><a href="index.html">Home</a> &gt; Mypage</p>
+<p class="topic-path"><a href="/">Home</a> &gt; Mypage</p>
 
 <!-- コンテンツ ここから -->
 <h2>{{ $user['name'] }}さんのマイページ</h2>
-<p></p>アカウント：{{ $user['name'] }}&nbsp;&#035;{{ $user['id'] }}</p>
-<p>作成時間：{{ $user['created_at'] }}</p>
-<p>メールアドレス：{{ $user['email'] }}</p>
-<p>管理者権限：{{ $user['admin'] }}</p>
+<p></p>ユーザ名：{{ $user['name'] }}</p>
+<p class="massub">ID：{{ $user['id'] }}</p>
+<p class="massub">作成日時：{{ $user['created_at'] }}</p>
+<p class="massub">メールアドレス：{{ $user['email'] }}</p>
+<p class="massub">管理者権限：{{ $user['admin'] }}</p>
+<p class="clfloat space"></p>
 
 <h2>{{ $user['name'] }}さんが加入している団体</h2>
 @foreach($ingroups as $ingroup)
-    <p>団体名 : {{ $ingroup->group->name }}</p>
-    <p>代表者氏名 : {{ $ingroup->group->leader_name }}</p>
-    <p>[<a href="/group/member/{{ $ingroup->group->id }}">詳細（参加脱退はこちら）</a>]</p>
+    <div class="float">
+        <p class>{{ $ingroup->group->name }}</p>
+    <p class><a href="/group/member/{{ $ingroup->group->id }}">詳細</a></p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">代表者 : {{ $ingroup->group->leader_name }}</p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">作成日時 : {{ $ingroup->group->created_at }}</p>
+    </div>
+    <p class="clfloat space"></p>
 @endforeach
 
 <h2>{{ $user['name'] }}さんが代表している団体</h2>
 @foreach($mygroups as $mygroup)
-    <p>団体名 : {{ $mygroup['name'] }}</p>
-    <p>代表者氏名 : {{ $mygroup['leader_name'] }}</p>
-    <p>[<a href="/group/member/{{ $mygroup->id }}">詳細（参加脱退はこちら）</a>]</p>
-
-    <form action="/group/leave/{{ $mygroup->id }}" id='{{ $mygroup->id }}' method="post">
-        @csrf
-        <p><input type="button" value="削除する" onclick="OnButtonClickGroupLeave({{ $mygroup->id }})"/></p>
-    </form>
+    <div class="float">
+        <p class>{{ $mygroup['name'] }}</p>
+    <p class><a href="/group/member/{{ $mygroup->id }}">詳細</a></p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">代表者 : {{ $mygroup->leader_name }}</p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">作成日時 : {{ $mygroup->created_at }}</p>
+    </div>
+    <p class="clfloat space"></p>
 @endforeach
 
 <h2>団体新規作成</h2>
-<p>[<a href="/group/create">新規作成(/group/create)</a>]</p>
+<p><a href="/group/create">新規作成</a></p>
+<p class="clfloat space"></p>
 
 <h2>{{ $user['name'] }}さんが代表している宿泊先</h2>
 @foreach($myplaces as $myplace)
-    <p>宿泊先 : {{ $myplace['name'] }}</p>
-    <p>代表者氏名 : {{ $myplace['leader_name'] }}</p>
-    <p >[<a href="/place/{{ $myplace->id }}">詳細（参加脱退はこちら）</a>]</p>
-    
+    <div class="float">
+    <p class>{{ $myplace['name'] }}</p>
+    <p class><a href="/place/{{ $myplace->id }}">詳細</a></p>
     <form action="/place/leave/{{ $myplace->id }}" id='{{ $myplace->id }}' method="post">
         @csrf
         <p><input type="button" value="削除する" onclick="OnButtonClickPlaceLeave({{ $myplace->id }})"/></p>
     </form>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">代表者 : {{ $myplace->leader_name }}</p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">住所 : {{ $myplace->address }}</p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">基本料金 : ¥{{ $myplace->value }}</p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">作成日時 : {{ $myplace->created_at }}</p>
+    </div>
+    
+    <p class="clfloat space"></p>
 @endforeach
 
 <h2>宿泊先新規作成</h2>
-    <p>[<a href="/place/create">新規作成(/place/create)</a>]</p>
+<p><a href="/place/create">新規作成</a></p>
+<p class="clfloat space"></p>
 <!-- コンテンツ ここまで -->
 </div><!-- / contents end -->
 </div><!-- / container-inner end -->
@@ -89,7 +118,7 @@
 <div id="footer">
 <div id="footer-inner">
 <!-- コピーライト -->
-<p>Copyright &copy; 2022 Masuda Mizuki(<a href="https://twitter.com/Classic_Gamepad">@Classic_Gamepad</a>) All Rights Reserved.</p>
+<p class="white">Copyright &copy; 2022 Masuda Mizuki(<a href="https://twitter.com/Classic_Gamepad">@Classic_Gamepad</a>) All Rights Reserved.</p>
 <p id="cds">CSS Template <a href="http://www.css-designsample.com/">CSSデザインサンプル</a></p>
 </div><!-- / footer-inner end -->
 </div><!-- / footer end -->

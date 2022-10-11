@@ -30,13 +30,6 @@ body {
   margin: 0;
 }
 
-hr {
-  height: 1px;
-  border: none;
-  border-top: 1px #000000 solid;
-  margin: 0.5rem 0;
-}
-
 /* ---------------------------------------- レイアウトに関する指定 */
 
 /* -- ヘッダーの外枠 -- */
@@ -217,3 +210,41 @@ h3,h4,h5,h6 { margin-top: 2.5em; }
 
 /* 以下 CSSデザインサンプルクレジット部分 */
 #cds { display: none; }
+
+/* ---------------------------------------- #ここから追加の記述 */
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px #000000 solid;
+  margin: 0.5rem 0;
+}
+
+.massub {
+  color: #606060;
+  font-size: 80%;
+}
+
+.float {
+  float: left;
+}
+
+.clfloat {
+  clear: left;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.space {
+  height: 2rem;
+}
+
+.white {
+  color: white;
+}
+
+.pagebation {
+  display: flex;
+}

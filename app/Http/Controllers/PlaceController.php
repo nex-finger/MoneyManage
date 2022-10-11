@@ -11,7 +11,7 @@ class PlaceController extends Controller
     {
         $md = new Place;
         $user = Auth()->user();
-        $data = $md->get();
+        $data = $md->latest()->paginate(10);
         
         return view('place', ['places' => $data], ['user' => $user]);   
     }

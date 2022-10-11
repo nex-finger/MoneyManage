@@ -12,7 +12,7 @@ class GroupController extends Controller
     {
         $md = new groups;
         $user = Auth()->user();
-        $data = $md->get();
+        $data = $md->latest()->paginate(10);
         
         return view('group', ['groups' => $data], ['user' => $user]);   
     }

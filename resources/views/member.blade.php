@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<link rel="stylesheet" href="/css/app.css" type="text/css" />
     <head>
         <meta charset="utf-8">
         <title>Blog</title>

@@ -13,7 +13,7 @@
                     @csrf
                     <div class="title">
                     <h2>情報</h2>
-                        <p><input type="text" name="name" placeholder="団体名"/></p>
+                        <p><input type="text" name="name" placeholder="宿泊先名"/></p>
                         <p><input type="text" name="address" placeholder="住所"/></p>
                         <p><input type="number" step="1" name="value" placeholder="基本料金"/></p>
                         <p><input type="number" step="0.00000000000001" name="lat" placeholder="緯度"/></p>

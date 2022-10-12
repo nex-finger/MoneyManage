@@ -10,7 +10,7 @@
 @foreach($options as $option)
     <p>サービス：{{ $option->name }}</p>
     <p>値段：{{ $option->value }}</p>
-    <form action="/option/update/{{ $id }}/{{ $option->id }}" method="post">
+    <form action="/option/update/{{ $option->id }}" method="post">
         @csrf
         <input type="submit" value="更新"> 
     </form>

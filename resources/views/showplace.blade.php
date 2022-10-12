@@ -70,7 +70,7 @@
             @endforeach
             
             <div class='body'>
-                <p class="edit">[<a href="/place/aaa/{{ $place->id }}">予約する</a>]</p>
+                <p class="edit">[<a href="/place/reserve/{{ $place->id }}">予約する</a>]</p>
                 <hr>
             </div>
         </div>

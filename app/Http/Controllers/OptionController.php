@@ -27,10 +27,10 @@ class OptionController extends Controller
         ]);//投稿フォーム表示
     }
     
-    public function updateform($id, $op)
+    public function updateform($id)
     {
         $option = new Option;
-        $data_op = $option->where('id', '=', $op)->get();
+        $data_op = $option->where('id', '=', $id)->get();
         
         return view('optionupdateform')->with([
             'option' => $data_op,
@@ -57,8 +57,11 @@ class OptionController extends Controller
     
     public function delete($id)
     {
-        $picture = new Picture;
-        $picture->where('id', '=', $id)->delete();
+        $option = new option;
+        $place_id = $option->where('id', '=', $id)->get();
+        //dd($place_id);
+        $option->where('id', '=', $id)->delete();
+        
         
         //保存処理後一覧ページに飛ばす
         return redirect()->action('MypageController@index');

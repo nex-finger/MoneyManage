@@ -1,4 +1,4 @@
-<form action="/option/store/{{ $id }}/{{ $op }}" method="post">
+<form action="/option/store/{{ $id }}" method="post">
     @csrf
     <p><input type="text" name="name" placeholder="サービス名" value="{{ $option->name }}"></p>
     <p><input type="text" name="value" placeholder="値段" value="{{ $option->value }}"></p>

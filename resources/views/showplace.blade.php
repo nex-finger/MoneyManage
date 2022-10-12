@@ -64,6 +64,10 @@
             }
 	        </script>
 	        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCcw2cN6DCE-NeANgOPo6ChK1KbXv8Go3U&callback=initMap" async defer></script>
+	        
+	        @foreach($images as $image)
+                <img src="{{ Storage::url($image->image) }}">
+            @endforeach
             
             <div class='body'>
                 <p class="edit">[<a href="/place/aaa/{{ $place->id }}">予約する</a>]</p>

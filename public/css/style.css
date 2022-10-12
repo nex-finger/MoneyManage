@@ -212,6 +212,57 @@ h3,h4,h5,h6 { margin-top: 2.5em; }
 #cds { display: none; }
 
 /* ---------------------------------------- #ここから追加の記述 */
+/* ---------------------------------------- #ボタンについて */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn,
+a.btn,
+button.btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+/* ---------------------------------------- #自分の記述 */
 hr {
   height: 1px;
   border: none;
@@ -220,6 +271,11 @@ hr {
 }
 
 .massub {
+  color: #606060;
+  font-size: 80%;
+}
+
+.massub a {
   color: #606060;
   font-size: 80%;
 }
@@ -248,3 +304,4 @@ hr {
 .pagebation {
   display: flex;
 }
+

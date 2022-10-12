@@ -36,11 +36,10 @@
 <p class="massub">管理者権限：{{ $user['admin'] }}</p>
 <p class="clfloat space"></p>
 
-<h2>{{ $user['name'] }}さんが加入している団体</h2>
+<h2>{{ $user['name'] }}さんが加入しているグループ</h2>
 @foreach($ingroups as $ingroup)
     <div class="float">
-        <p class>{{ $ingroup->group->name }}</p>
-    <p class><a href="/group/member/{{ $ingroup->group->id }}">詳細</a></p>
+        <p class><a href="/group/member/{{ $ingroup->group->id }}">{{ $ingroup->group->name }}</a></p>
     </div>
     <div class="right">
         <p class="massub" class="float">代表者 : {{ $ingroup->group->leader_name }}</p>
@@ -51,11 +50,10 @@
     <p class="clfloat space"></p>
 @endforeach
 
-<h2>{{ $user['name'] }}さんが代表している団体</h2>
+<h2>{{ $user['name'] }}さんが代表しているグループ</h2>
 @foreach($mygroups as $mygroup)
     <div class="float">
-        <p class>{{ $mygroup['name'] }}</p>
-    <p class><a href="/group/member/{{ $mygroup->id }}">詳細</a></p>
+        <p class><a href="/group/member/{{ $mygroup->id }}">{{ $mygroup['name'] }}</a></p>
     </div>
     <div class="right">
         <p class="massub" class="float">代表者 : {{ $mygroup->leader_name }}</p>
@@ -73,11 +71,11 @@
 <h2>{{ $user['name'] }}さんが代表している宿泊先</h2>
 @foreach($myplaces as $myplace)
     <div class="float">
-    <p class>{{ $myplace['name'] }}</p>
-    <p class><a href="/place/{{ $myplace->id }}">詳細</a></p>
+        <p><a href="/place/{{ $myplace->id }}">{{ $myplace['name'] }}</a></p>
+        <p class="massub"><a href="/image/form/{{ $myplace->id }}">写真登録</a> <a href="/option/form/{{ $myplace->id }}">オプション登録</a></p>
     <form action="/place/leave/{{ $myplace->id }}" id='{{ $myplace->id }}' method="post">
         @csrf
-        <p><input type="button" value="削除する" onclick="OnButtonClickPlaceLeave({{ $myplace->id }})"/></p>
+        <input class="btn btn--orange btn--radius" type="button" value="削除する" onclick="OnButtonClickPlaceLeave({{ $myplace->id }})"/>
     </form>
     </div>
     <div class="right">

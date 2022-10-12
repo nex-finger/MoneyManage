@@ -32,11 +32,12 @@ Route::post('/group/member/join/{group}', 'MemberController@storejoin');
 Route::post('/group/member/leave/{group}', 'MemberController@storeleave');
 
 Route::get ('/place', 'PlaceController@index');
-
 Route::get ('/place/create', 'PlaceController@create');
 Route::post('/place/create', 'PlaceController@store');
-
 Route::get ('/place/{id}', 'PlaceController@show');
+
+Route::get ('/place/reserve/{id}', 'ReserveController@form');
+Route::post('/place/reserve/{id}', 'ReserveController@store');
 
 Route::post('/group/leave/{id}', 'GroupController@leave');
 Route::post('/place/leave/{id}', 'PlaceController@leave');
@@ -48,8 +49,8 @@ Route::post('/image/delete/{id}', 'ImageController@delete'); //画像削除
 
 Route::get ('/option/form/{id}', 'OptionController@form'); //画像投稿フォーム
 Route::post('/option/store/{id}', 'OptionController@store');
-Route::get ('/option/update/{id}/{op}', 'OptionController@updateform');
-Route::post('/option/update/{id}/{op}', 'OptionController@updatedtore');
+Route::get ('/option/update/{option}', 'OptionController@updateform');
+Route::post('/option/update/{option}', 'OptionController@updatedtore');
 Route::post('/option/delete/{id}', 'OptionController@delete');
 
 Route::get ('recipe/create', 'RecipeController@create')->name('recipe.create');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Place;
+use App\Picture;
 
 class PlaceController extends Controller
 {
@@ -43,15 +44,20 @@ class PlaceController extends Controller
     
     public function show($id)
     {
-        $md = new Place;
+        $place = new Place;
+        $picture = new Picture;
         $user = Auth()->user();
-        $data = $md->find($id);
+        $data_pl = $place->find($id);
+        $data_pi = $picture->where('place_id', '=', $id)->get();
         
-        $lat = $data['lat'];
-        $lng = $data['lng'];
-        $placename = $data['name'];
+        $lat = $data_pl['lat'];
+        $lng = $data_pl['lng'];
+        $placename = $data_pl['name'];
         
-        return view('showplace', ['place' => $data], ['user' => $user])->with([
+        return view('showplace')->with([
+            'place' => $data_pl,
+            'images' => $data_pi,
+            'user' => $user,
             'lat' => $lat,
             'lng' => $lng,
             'placename' => $placename]);

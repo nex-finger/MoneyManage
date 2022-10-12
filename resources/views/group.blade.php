@@ -35,8 +35,7 @@
 <h2>グループ一覧</h2>
 @foreach($groups as $group)
     <div class="float">
-        <p class>{{ $group->name }}</p>
-    <p class><a href="/group/member/{{ $group->id }}">詳細</a></p>
+        <p class><a href="/group/member/{{ $group->id }}">{{ $group->name }}</a></p>
     </div>
     <div class="right">
         <p class="massub" class="float">代表者 : {{ $group->leader_name }}</p>

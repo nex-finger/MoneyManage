@@ -35,8 +35,7 @@
 <h2>宿泊先一覧</h2>
 @foreach($places as $place)
     <div class="float">
-        <p class>{{ $place->name }}</p>
-    <p class><a href="/place/{{ $place->id }}">詳細</a></p>
+        <p class><a href="/place/{{ $place->id }}">{{ $place->name }}</a></p>
     </div>
     <div class="right">
         <p class="massub" class="float">代表者 : {{ $place->leader_name }}</p>

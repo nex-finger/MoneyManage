@@ -14,6 +14,7 @@
         @csrf
         <input type="submit" value="更新"> 
     </form>
+    
     <form action="/option/delete/{{ $option->id }}" method="post">
         @csrf
         <input type="submit" value="削除"> 

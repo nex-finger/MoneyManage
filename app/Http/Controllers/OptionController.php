@@ -41,7 +41,7 @@ class OptionController extends Controller
 //保存処理がちょい複雑かもぉ(o_o)「
     public function store($id, Request $request)
     {
-        //dd($request);
+        //dd($id);
         $option = new Option;
         
         $option->place_id = $id;
@@ -57,9 +57,12 @@ class OptionController extends Controller
     
     public function delete($id)
     {
-        $option = new option;
+        $option = new Option;
+        
+        //dd($tmp);
         $place_id = $option->where('id', '=', $id)->get();
-        //dd($place_id);
+        //$tmp = $option->where('id', '=', $id)->get(['place_id']);
+
         $option->where('id', '=', $id)->delete();
         
         

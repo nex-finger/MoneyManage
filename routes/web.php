@@ -21,6 +21,7 @@ Route::get ('/', 'IndexController@index');
 Route::get ('/home', 'HomeController@index')->name('home');
 Route::get ('/mypage', 'MypageController@index');
 Route::get ('/group', 'GroupController@index');
+Route::get ('/howto', 'HowtoController@index');
 Route::get ('/howto/group', 'HowtoController@group');
 Route::get ('/howto/place', 'HowtoController@place');
 
@@ -47,7 +48,7 @@ Route::get ('/image/form/{id}', 'ImageController@form'); //画像投稿フォー
 Route::post('/image/store/{id}', 'ImageController@store'); //画像保存
 Route::post('/image/delete/{id}', 'ImageController@delete'); //画像削除
 
-Route::get ('/option/form/{id}', 'OptionController@form'); //画像投稿フォーム
+Route::get ('/option/form/{id}', 'OptionController@form');
 Route::post('/option/store/{id}', 'OptionController@store');
 Route::get ('/option/update/{option}', 'OptionController@updateform');
 Route::post('/option/update/{option}', 'OptionController@updatedtore');
@@ -58,3 +59,4 @@ Route::get ('recipe/{recipe}', 'RecipeController@show')->name('recipe.show');
 Route::post('recipe', 'RecipeController@store')->name('recipe.store');
 
 Route::get ('/admin', 'AdminController@index');
+Route::post('/admin', 'AdminController@update');

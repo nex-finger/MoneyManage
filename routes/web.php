@@ -51,7 +51,7 @@ Route::post('/image/delete/{id}', 'ImageController@delete'); //画像削除
 Route::get ('/option/form/{id}', 'OptionController@form');
 Route::post('/option/store/{id}', 'OptionController@store');
 Route::get ('/option/update/{option}', 'OptionController@updateform');
-Route::post('/option/update/{option}', 'OptionController@updatedtore');
+Route::post('/option/update/{option}', 'OptionController@updatestore');
 Route::post('/option/delete/{id}', 'OptionController@delete');
 
 Route::get ('recipe/create', 'RecipeController@create')->name('recipe.create');

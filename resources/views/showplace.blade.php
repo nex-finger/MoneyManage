@@ -33,7 +33,7 @@
 <div class="float">
     <p class>代表者 : {{ $place['leader_name'] }}</p>
     <p class>住所 : {{ $place['address'] }}</p>
-    <p class>基本料金 : {{ $place['value'] }}</p>
+    <p class>基本料金 : ¥{{ $place['value'] }}</p>
 </div>
 <div class="right">
     <p class="massub" class="float">ID : {{ $place['leader_id'] }}</p>
@@ -133,7 +133,6 @@ function OnButtonClickGroupLeave(id) {
         document.getElementById(id).submit();
     }
 }
-
 function OnButtonClickPlaceLeave(id) {
     if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
         document.getElementById(id).submit();

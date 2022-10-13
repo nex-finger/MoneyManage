@@ -7,22 +7,27 @@ use App\groups;
 use App\User;
 use App\Member;
 use App\Reserve;
+use App\Place;
 
 class ReserveController extends Controller
 {
-    public function form($place_id)
+    public function form($place_id) 
     {
+        //dd($place_id);
         $user = Auth()->user();
         $id = Auth()->id();
         
         $data_gr = new groups;
+        $data_pl = new Place;
         
         $groups = $data_gr->where('leader_id' ,'=', $id)->get();
+        $place = $data_pl->where('id', '=', $place_id)->first();
         
         return view('reservegroup')->with([
             'user' => $user,
             'groups' => $groups,
-            'place_id' => $place_id
+            'place_id' => $place_id,
+            'place' => $place,
             ]);
         //return view('member', ['leader' => $memdata], ['user' => $user])->with('members', $members);
     }
@@ -35,6 +40,7 @@ class ReserveController extends Controller
         $data = new reserve();
         $data->place_id = $place_id;
         $data->group_id = $request['group'];
+        $data->arrival = $request['arrival'];
         
         $data->save();
         

@@ -9,5 +9,6 @@ class Reserve extends Model
     protected $fillable = [
         'place_id',
         'group_id',
+        'date',
     ];
 }

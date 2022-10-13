@@ -47,7 +47,7 @@
         <p class="massub" class="float">住所 : {{ $place->address }}</p>
     </div>
     <div class="right">
-        <p class="massub" class="float">基本料金 : {{ $place->value }}</p>
+        <p class="massub" class="float">基本料金 : ¥{{ $place->value }}</p>
     </div>
     <p class="clfloat space"></p>
 @endforeach

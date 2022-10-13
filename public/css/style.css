@@ -226,11 +226,13 @@ html {
 }
 
 .btn,
+.button,
 a.btn,
 button.btn {
   position: relative;
   display: inline-block;
   padding: 0.5em 1rem;
+  margin: 0.5rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -244,6 +246,7 @@ button.btn {
   letter-spacing: 0.1em;
   color: #212529;
   border-radius: 0.5rem;
+  border: 2px solid #000000;
 }
 
 .btn--orange,
@@ -256,6 +259,22 @@ a.btn--orange {
 a.btn--orange:hover {
   color: #fff;
   background: #f56500;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+.btn--blue,
+a.btn--blue {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.btn--blue:hover,
+a.btn--oblue:hover {
+  color: #fff;
+  background: #0099ff;
 }
 
 a.btn--radius {
@@ -305,3 +324,24 @@ hr {
   display: flex;
 }
 
+.inputbox {
+  padding: 0 10px;
+  margin: 5px;
+  width: 250px;
+  height: 36px;
+  border: 2px;
+  font-size: 14px;
+  color: #000;
+}
+
+input[type="date"] {
+  position: relative;
+  padding: 0 10px;
+  width: 200px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #000;
+}

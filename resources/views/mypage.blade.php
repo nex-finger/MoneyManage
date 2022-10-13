@@ -28,7 +28,7 @@
 <p class="topic-path"><a href="/">Home</a> &gt; Mypage</p>
 
 <!-- コンテンツ ここから -->
-<h2>{{ $user['name'] }}さんのマイページ</h2>
+<h2>{{ $user['name'] }}さんのユーザ情報</h2>
 <p></p>ユーザ名：{{ $user['name'] }}</p>
 <p class="massub">ID：{{ $user['id'] }}</p>
 <p class="massub">作成日時：{{ $user['created_at'] }}</p>
@@ -69,29 +69,30 @@
 <p class="clfloat space"></p>
 
 <h2>{{ $user['name'] }}さんが代表している宿泊先</h2>
+
 @foreach($myplaces as $myplace)
-    <div class="float">
-        <p><a href="/place/{{ $myplace->id }}">{{ $myplace['name'] }}</a></p>
-        <p class="massub"><a href="/image/form/{{ $myplace->id }}">写真登録</a> <a href="/option/form/{{ $myplace->id }}">オプション登録</a></p>
-    <form action="/place/leave/{{ $myplace->id }}" id='{{ $myplace->id }}' method="post">
-        @csrf
-        <input class="btn btn--orange btn--radius" type="button" value="削除する" onclick="OnButtonClickPlaceLeave({{ $myplace->id }})"/>
-    </form>
-    </div>
-    <div class="right">
-        <p class="massub" class="float">代表者 : {{ $myplace->leader_name }}</p>
-    </div>
-    <div class="right">
-        <p class="massub" class="float">住所 : {{ $myplace->address }}</p>
-    </div>
-    <div class="right">
-        <p class="massub" class="float">基本料金 : ¥{{ $myplace->value }}</p>
-    </div>
-    <div class="right">
-        <p class="massub" class="float">作成日時 : {{ $myplace->created_at }}</p>
-    </div>
-    
-    <p class="clfloat space"></p>
+<div class="float">
+    <p><a href="/place/{{ $myplace->id }}">{{ $myplace['name'] }}</a></p>
+    <p class="massub"><a href="/image/form/{{ $myplace->id }}">写真登録</a> <a href="/option/form/{{ $myplace->id }}">オプション登録</a></p>
+<form action="/place/leave/{{ $myplace->id }}" id='{{ $myplace->id }}' method="post">
+    @csrf
+    <input class="btn btn--orange btn--radius" type="button" value="削除する" onclick="OnButtonClickPlaceLeave({{ $myplace->id }})"/>
+</form>
+</div>
+<div class="right">
+    <p class="massub" class="float">代表者 : {{ $myplace->leader_name }}</p>
+</div>
+<div class="right">
+    <p class="massub" class="float">住所 : {{ $myplace->address }}</p>
+</div>
+<div class="right">
+    <p class="massub" class="float">基本料金 : ¥{{ $myplace->value }}</p>
+</div>
+<div class="right">
+    <p class="massub" class="float">作成日時 : {{ $myplace->created_at }}</p>
+</div>
+
+<p class="clfloat space"></p>
 @endforeach
 
 <h2>宿泊先新規作成</h2>

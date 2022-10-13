@@ -77,19 +77,5 @@
 </div><!-- / footer-inner end -->
 </div><!-- / footer end -->
 
-<script>
-function OnButtonClickGroupLeave(id) {
-    if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-        document.getElementById(id).submit();
-    }
-}
-
-function OnButtonClickPlaceLeave(id) {
-    if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-        document.getElementById(id).submit();
-    }
-}
-</script>
-
 </body>
 </html>

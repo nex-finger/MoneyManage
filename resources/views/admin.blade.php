@@ -35,6 +35,24 @@
         <h1>Test Page</h1>
         <div class='testid'>
             <div class='post'>
+                <h2 class='title'>管理者権限付与</h2>
+                <p class='body'>テキストボックスにユーザIDを，ラジオボタンに権限を指定してください</p>
+                <p class='body'>0を選ぶと一般アカウント（管理者権限なし），1を選ぶと管理者アカウントとなります（管理者権限あり）</p>
+                <p class='body'>※みだりに他人のアカウントに権限を付与しないようお願いします</p>
+                <form action="/admin" method="post">
+                    @csrf
+                    <p><input type="number" step="1" name="id" placeholder="ユーザID"></p>
+                    <input type="radio" name="admin_chk" value="0">0
+                    <input type="radio" name="admin_chk" value="1">1
+                    <p><input type="submit" value="更新"></p>
+                </form>
+                
+                <h2 class='title'>データベース情報全件表示</h2>
+                <p class='body'>管理者権限保持者のみ閲覧可能</p>
+                <p class='body'>動作が重くなることがあります</p>
+                
+                <hr>
+                
                 <h2 class='title'>データベース情報全件表示</h2>
                 <p class='body'>管理者権限保持者のみ閲覧可能</p>
                 <p class='body'>動作が重くなることがあります</p>
@@ -208,6 +226,8 @@
                         <th>id</th>
                         <th>place_id</th>
                         <th>group_id</th>
+                        <th>arrivel</th>
+                        <th>done_chk</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                     </tr>
@@ -216,6 +236,8 @@
                         <td>{{ $reserve->id }}</td>
                         <td>{{ $reserve->place_id }}</td>
                         <td>{{ $reserve->group_id }}</td>
+                        <td>{{ $reserve->arrival }}</td>
+                        <td>{{ $reserve->done_chk }}</td>
                         <td>{{ $reserve->created_at }}</td>
                         <td>{{ $reserve->updated_at }}</td>
                     </tr>

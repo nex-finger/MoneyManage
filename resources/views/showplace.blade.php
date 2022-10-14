@@ -127,7 +127,7 @@ function initMap() {
 }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=" + {{ config('services.map.key') }} + "&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBUoOEGQbOVBC-xwb9H1XNK53eaZNxuv2M&callback=initMap" async defer></script>
 
 <script>
 function OnButtonClickGroupLeave(id) {

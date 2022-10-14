@@ -97,6 +97,7 @@
 const lat = @json($lat);
 const lng = @json($lng);
 const placename = @json($placename);
+const api_key = {{ config('services.map.key') }};
     
 //console.log(lat);
 //console.log(lng);
@@ -125,7 +126,8 @@ function initMap() {
     });
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCcw2cN6DCE-NeANgOPo6ChK1KbXv8Go3U&callback=initMap" async defer></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=" + {{ config('services.map.key') }} + "&callback=initMap" async defer></script>
 
 <script>
 function OnButtonClickGroupLeave(id) {

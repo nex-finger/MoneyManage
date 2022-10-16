@@ -54,9 +54,11 @@ Route::get ('/option/update/{option}', 'OptionController@updateform');
 Route::post('/option/update/{option}', 'OptionController@updatestore');
 Route::post('/option/delete/{id}', 'OptionController@delete');
 
-Route::get ('recipe/create', 'RecipeController@create')->name('recipe.create');
-Route::get ('recipe/{recipe}', 'RecipeController@show')->name('recipe.show');
-Route::post('recipe', 'RecipeController@store')->name('recipe.store');
+Route::get ('/mypage/reserve/{id}', 'OrderController@index');
+Route::get ('/mypage/order/{id}', 'OrderController@form');
+Route::post('/mypage/order/{id}', 'OrderController@store');
+
+Route::get ('/result', 'ResultController@currentLocation')->name('result.currentLocation');
 
 Route::get ('/admin', 'AdminController@index');
 Route::post('/admin', 'AdminController@update');

@@ -30,16 +30,17 @@
 <!-- コンテンツ ここから -->
 <h2>{{ $user['name'] }}さんのユーザ情報</h2>
 <p></p>ユーザ名：{{ $user['name'] }}</p>
-<p class="massub">ID：{{ $user['id'] }}</p>
+<p class="massub">ユーザID：{{ $user['id'] }}</p>
 <p class="massub">作成日時：{{ $user['created_at'] }}</p>
 <p class="massub">メールアドレス：{{ $user['email'] }}</p>
 <p class="massub">管理者権限：{{ $user['admin'] }}</p>
 <p class="clfloat space"></p>
 
-<h2>{{ $user['name'] }}さんが加入しているグループ</h2>
+<h2>{{ $user['name'] }}さんが加入しているグループ(オプションの登録はこちら)</h2>
 @foreach($ingroups as $ingroup)
     <div class="float">
-        <p class><a href="/group/member/{{ $ingroup->group->id }}">{{ $ingroup->group->name }}</a></p>
+        <p><a href="/group/member/{{ $ingroup->group->id }}">{{ $ingroup->group->name }}</a></p>
+        <p class="massub"><a href="/mypage/reserve/{{ $ingroup->group->id }}">オプションの登録</a></p>
     </div>
     <div class="right">
         <p class="massub" class="float">代表者 : {{ $ingroup->group->leader_name }}</p>
@@ -53,7 +54,7 @@
 <h2>{{ $user['name'] }}さんが代表しているグループ</h2>
 @foreach($mygroups as $mygroup)
     <div class="float">
-        <p class><a href="/group/member/{{ $mygroup->id }}">{{ $mygroup['name'] }}</a></p>
+        <p><a href="/group/member/{{ $mygroup->id }}">{{ $mygroup['name'] }}</a></p>
     </div>
     <div class="right">
         <p class="massub" class="float">代表者 : {{ $mygroup->leader_name }}</p>

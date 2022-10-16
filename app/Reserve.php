@@ -11,4 +11,14 @@ class Reserve extends Model
         'group_id',
         'date',
     ];
+    
+    public function groups()
+    {
+        return $this->belongsTo('App\groups', 'group_id', 'id');
+    }
+    
+    public function places()
+    {
+        return $this->belongsTo('App\Place', 'place_id', 'id');
+    }
 }

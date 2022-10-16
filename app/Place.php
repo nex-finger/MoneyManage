@@ -25,4 +25,9 @@ class Place extends Authenticatable
     {
         return $this->hasMany(option::class, 'place_id', 'id');
     }
+    
+    public function reserves()
+    {
+        return $this->hasMany('App\Reserve', 'place_id', 'id');
+    }
 }

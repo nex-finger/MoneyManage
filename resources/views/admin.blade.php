@@ -226,7 +226,7 @@
                         <th>id</th>
                         <th>place_id</th>
                         <th>group_id</th>
-                        <th>arrivel</th>
+                        <th>arrival</th>
                         <th>done_chk</th>
                         <th>created_at</th>
                         <th>updated_at</th>

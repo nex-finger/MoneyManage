@@ -36,7 +36,7 @@
     <p class>基本料金 : ¥{{ $place['value'] }}</p>
 </div>
 <div class="right">
-    <p class="massub" class="float">ID : {{ $place['leader_id'] }}</p>
+    <p class="massub" class="float">ユーザID : {{ $place['leader_id'] }}</p>
 </div>
 <div class="right">
     <p class="massub" class="float">作成日時 : {{ $place['created_at'] }}</p>
@@ -53,7 +53,7 @@
 </div>
 <p class="clfloat space"></p>
 
-<div id="map" style="height:500px"></div>
+<div id="map" class="map" style="height:500px"></div>
 
 @foreach($images as $image)
     <img src="{{ Storage::url($image->image) }}">
@@ -127,7 +127,7 @@ function initMap() {
 }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=" + {{ config('services.map.key') }} + "&callback=initMap" async defer></script>
+<script src={{ $api }} async defer></script>
 
 <script>
 function OnButtonClickGroupLeave(id) {
@@ -141,6 +141,38 @@ function OnButtonClickPlaceLeave(id) {
     }
 }
 </script>
+
+
+<!-- APIキーを指定してjsファイルを読み込む -->
+<!--
+<script async src={{ $api }}></script>
+<script type="text/javascript">
+// Google Mapを表示する関数
+function initMap() {
+  const geocoder = new google.maps.Geocoder();
+  // ここでaddressのvalueに住所のテキストを指定する
+  geocoder.geocode( { address: {{ $place->address }}}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      const latlng = {
+        lat: results[0].geometry.location.lat(),
+        lng: results[0].geometry.location.lng()
+      }
+      const opts = {
+        zoom: 15,
+        center: new google.maps.LatLng(latlng)
+      }
+      const map = new google.maps.Map(document.getElementById('map'), opts)
+      new google.maps.Marker({
+        position: latlng,
+        map: map 
+      })
+    } else {
+      console.error('Geocode was not successful for the following reason: ' + status)
+    }
+  })
+}
+</script>
+-->
 
 </body>
 </html>

@@ -24,4 +24,9 @@ class groups extends Authenticatable
     {
         return $this->hasMany('App\Member', 'user_id', 'id');
     }
+    
+    public function reserves()
+    {
+        return $this->hasMany('App\Reserve', 'group_id', 'id');
+    }
 }

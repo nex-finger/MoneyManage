@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Place;
 use App\groups;
 use App\Member;
+use App\Reserve;
 
 class MypageController extends Controller
 {
@@ -29,17 +31,18 @@ class MypageController extends Controller
         
         $groups = new groups;
         $places = new Place;
+        $reserves = new Reserve;
         
-        $mygr = groups::where('leader_id', '=', $user['id'])->get();
-        $mypl = Place::where('leader_id', '=', $user['id'])->get();
-        $ingr = Member::with('group')->where('user_id', '=', $user['id'])->get();
+        $mygrs = groups::where('leader_id', '=', $user['id'])->get();
+        $mypls = Place::where('leader_id', '=', $user['id'])->get();
+        $ingrs = Member::with('group')->where('user_id', '=', $user['id'])->get();
         
         //この書き方だと正しく表示される
         return view('mypage')->with([
             'user' => $user,
-            'mygroups' => $mygr,
-            'myplaces' => $mypl,
-            'ingroups' => $ingr
+            'mygroups' => $mygrs,
+            'myplaces' => $mypls,
+            'ingroups' => $ingrs,
             ]);
         
         //これだとダメらしい

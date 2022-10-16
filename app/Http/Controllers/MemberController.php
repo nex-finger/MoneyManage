@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\groups;
 use App\User;
 use App\Member;
+use App\Reserve;
+use App\Place;
 
 class MemberController extends Controller
 {
@@ -23,16 +25,19 @@ class MemberController extends Controller
         $memberarr = [];
         
         foreach($members as $member){
-        array_push($memberarr, $member['user_id']);
+            array_push($memberarr, $member['user_id']);
         }
         //dd($memberarr);
+
+        $reserve = Reserve::with('places')->where('group_id', '=', $group_id)->get();
         
         return view('member')->with([
             'user' => $user,
             'leader' => $leader,
             'members' => $members,
             'memberarr' => $memberarr,
-            'group_id' => $group_id
+            'group_id' => $group_id,
+            'reserves' => $reserve,
             ]);
         //return view('member', ['leader' => $memdata], ['user' => $user])->with('members', $members);
     }

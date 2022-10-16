@@ -54,11 +54,10 @@ class PlaceController extends Controller
         $lng = $data_pl['lng'];
         $placename = $data_pl['name'];
         
-        /*
         $api = 'https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=';
         $api .= config('services.map.key');
         $api .= '&callback=initMap';
-        */
+        
         //dd($api);
         
         return view('showplace')->with([
@@ -68,7 +67,7 @@ class PlaceController extends Controller
             'lat' => $lat,
             'lng' => $lng,
             'placename' => $placename,
-            //'api' => $api,
+            'api' => $api,
             ]);
     }
     

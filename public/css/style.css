@@ -334,6 +334,10 @@ hr {
   color: #000;
 }
 
+.shortbox {
+  width: 100px;
+}
+
 input[type="date"] {
   position: relative;
   padding: 0 10px;

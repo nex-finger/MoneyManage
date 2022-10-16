@@ -59,6 +59,36 @@
 </form>
 </div>
 <p class="clfloat space"></p>
+
+<h2>{{ $leader }}の予約状況</h2>
+@foreach ($reserves as $reserve)
+    <div class="float">
+        <p>{{ $reserve->places->name }}</p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">予約ID : {{ $reserve->id }}</p>
+    </div>
+    <div class="right">
+        <p class="massub" class="float">到着日時 : {{ $reserve->arrival }}</p>
+    </div>
+    <p class="clfloat space"></p>
+@endforeach
+
+<h2>{{ $leader }}への参加，脱退</h2>
+<div class="float">
+    <form action="/group/member/join/{{ $group_id }}" id="1" method="post">
+        @csrf
+        <p><input class="btn btn--blue btn--radius" type="button" value="加入する" onclick="OnButtonClickJoin()"/></p>
+    </form>
+    
+    <form action="/group/member/leave/{{ $group_id }}" id="2" method="post">
+        @csrf
+        <p><input class="btn btn--orange btn--radius" type="button" value="脱退する" onclick="OnButtonClickLeave()"/></p>
+    </form>
+</form>
+</div>
+<p class="clfloat space"></p>
+
 <!-- コンテンツ ここまで -->
 </div><!-- / contents end -->
 </div><!-- / container-inner end -->

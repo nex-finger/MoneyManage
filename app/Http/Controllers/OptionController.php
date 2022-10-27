@@ -25,7 +25,8 @@ class OptionController extends Controller
         
         $data_op = $option->where('place_id', '=', $id)->get();
         $data_tm = $option->where('place_id', '=', $id)->first();
-        $data_pl = $place->where('id', '=', $data_tm->place_id)->first();
+        $data_pl = $place->where('id', '=', $id)->first();
+        //dd($data_pl);
         
         return view('optionform')->with([
             'place' => $data_pl,
@@ -59,7 +60,7 @@ class OptionController extends Controller
         $option->where('id', '=', $id)->delete();
         
         
-        //保存処理後一覧ページに飛ばす
+        //���存処理後一覧ページに飛ばす
         return redirect()->action('OptionController@form', ['id' => $place_id['place_id']]);
     }
     
